@@ -6,6 +6,9 @@
 .project
 .settings
 
+# bin文件夹都不要，存疑
+/bin/
+
 # Compiled class file
 *.class
 
