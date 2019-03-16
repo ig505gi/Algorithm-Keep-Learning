@@ -147,7 +147,7 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 >First pass.  
 >・Build heap using bottom-up method.  保证父亲一定比孩子大
 >Second pass.   
->・Remove the maximum,one at a time.   将root(最大)移到尾部，并删除，然后将root给sink下去
+>・Remove the maximum,one at a time.   将root(最大)移到尾部，并删除，然后将root给sink下去  
 >・Leave in array, instead of nulling out.  循环遍历剩下的，同样策略，直到没有元素
 
 #### Symbol Table
