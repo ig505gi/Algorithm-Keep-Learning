@@ -48,7 +48,6 @@ Padding. Each object uses a multiple of 8 bytes.
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaMemory.png)
 
 #### 作业 Percolation
-见week1.
 
 ### 1.2 Week2 Stacks and Queue & Elementary Sorts
 
@@ -129,6 +128,9 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 #### Sorting Summary
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SortingSummary.png)
 
+加上Heapsort后的表：  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SortingSummary2.png)
+
 #### 作业 Collinear
 
 ### 1.4 Week4 Priority Queue & Elementary Symbol Tables
@@ -152,8 +154,8 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 
 #### Symbol Table
 >Key-value pair abstraction.  
->・*Insert* a value with specified key.  
->・Given a key, *search* for the corresponding value.  
+>・**Insert** a value with specified key.  
+>・Given a key, **search** for the corresponding value.  
 
 #### 作业 8Puzzle
 
@@ -218,6 +220,36 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 ・Mac: HFS, HFS+.  
 ・Linux: ReiserFS, XFS, Ext3FS, JFS.  
 ・Databases: ORACLE, DB2, INGRES, SQL, PostgreSQL.  
+
+#### kd-tree
+广泛应用于图形学领域，将图形学的搜索提高了很高的效率，个人觉得也是分治思想的应用。
+
+### 2.6 Week6 Hash Table
+
+#### Java’s hash code conventions
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaHash.png)  
+
+用户自定义hash code  
+可以采用 31x + y rule
+
+#### Java中的位运算符：  
+ \>\>表示右移，如果该数为正，则高位补0，若为负数，则高位补1；  
+ \>\>\>表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0。 
+
+#### hash collision
+解决办法： 
+1. separate chaining  
+>・Easier to implement delete.  
+・Performance degrades gracefully.  
+・Clustering less sensitive to poorly-designed hash function.  
+2. linear probing  
+>・Less wasted space.  
+・Better cache performance. 
+
+#### Java system: Red-black BSTs & Hash tables
+>・Red-black BSTs: java.util.TreeMap, java.util.TreeSet.  
+・Hash tables: java.util.HashMap, java.util.IdentityHashMap. 
+
 
 ## 2.Part2
 ### 2.1 Week1
