@@ -217,7 +217,7 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 #### kd-tree
 广泛应用于图形学领域，将图形学的搜索提高了很高的效率，个人觉得也是分治思想的应用。
 
-### 2.6 Week6 Hash Table
+### 1.6 Week6 Hash Table
 
 #### Java’s hash code conventions
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaHash.png)  
