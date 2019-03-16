@@ -81,7 +81,51 @@ Swap a\[i] and a\[r].
 
 #### 作业 Dequeue
 
-### 1.3 Week3
+### 1.3 Week3 Merge Sort & Quick Sort
+
+#### Merge Sort
+>Basic plan.  
+>1. Divide array into two halves.  
+>2. Recursively sort each half.  
+>3. Merge two halves.
+
+改进1： 当一些子序列很小的时候，可以直接采用插入排序 (实际应用，当长度大约为7的时候，效果不错)
+
+#### 循环实现MergeSort
+
+>Basic plan.
+>1. Pass through array, merging subarrays of size 1.  
+>2. Repeat for subarrays of size 2, 4, 8, 16, ....
+
+大约比递归实现慢10%
+
+#### stable & in-place
+stable: 不改变原序列前后顺序的排列是稳定的（对于那些相同key的变量来说）  
+in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
+
+#### Quick Sort
+>Basic plan.
+>1. Shuffle the array.  
+>2. Partition so that, for some j
+>   – entry a\[j] is in place
+>   – no larger entry to the left of j
+>   – no smaller entry to the right of j
+>3. Sort each piece recursively.
+
+一开始的洗牌很关键！能确保减小遇到最坏情况的概率  
+改进1： 将mid，lo，hi中中等的取为flag
+
+#### 3-way QuickSort
+当序列中有很多重复的值时，才会这种方法效率很高
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/3wayQuickSort.png)
+
+#### Java System Sorts
+>Arrays.sort().  
+・Has different method for each primitive type.  
+・Has a method for data types that implement Comparable.  
+・Has a method that uses a Comparator.  
+・Uses tuned quicksort for primitive types; tuned mergesort for objects.  
+
 ### 1.4 Week4
 ### 1.5 Week5
 ## 2.Part2
