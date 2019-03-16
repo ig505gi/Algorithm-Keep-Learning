@@ -4,22 +4,29 @@
 
 ### 课程包括Part1和Part2两部分
 
-## 1.Part1
-### 1.1 Week1
+
+## 1.Algorithm Part1
+
+### 1.1 Week1 Union Find & Analysis of Algrorithms
+
 #### Quick Find 
 数组实现： index表示point，value表示出口，同一集合的point的value相同
+
 #### Quick Union
 数组实现原理：  
 i.  id\[i] is parent of i.   
 ii.  root: 当id\[i] == i时，该点即为根  
 iii. union: 将两点的根设置为相同即可
+
 #### Weighted quick-union with path compression
 Quick Union改进了 Quick Find，平均时间复杂度变成了lgN，但是特殊情况下，树会越来越深  
 改进1：  Weighted quick-union： 把子树加上size，总选择size小的添加  
 改进2：  Path Compression： `id[i] = id[id[i]];` 因为我们只是找相同的root，不在意过程，可以直接寻找parent的parent来压缩路径；  
+
 #### Union-Find Summary
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/unionFind.png)
 图为Union-Find的各种实现算法的时间复杂度
+
 #### 算法分析
 Typical orders of growth  
 
@@ -42,7 +49,38 @@ Padding. Each object uses a multiple of 8 bytes.
 
 #### 作业 Percolation
 见week1.
-### 1.2 Week2
+
+### 1.2 Week2 Stacks and Queue & Elementary Sorts
+
+#### 简介
+>Stack. Examine the item most recently added.  LIFO = "last in first out"  
+ Queue. Examine the item least recently added.  FIFO = "first in first out"  
+
+#### Java中的generic
+不能用 `s = new Item[capacity];` 因为 generic array creation not allowed in Java  
+应该这样： `s = (Item[]) new Object[capacity];`
+
+#### Iterator
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Iterator.png)
+
+#### Shell Sort
+>Idea. Move entries more than one position at a time by h-sorting the array.  
+which increment sequence to use?  
+Powers of two minus one. 1, 3, 7, 15, 31, 63, ... Maybe.  
+3x + 1. 1, 4, 13, 40, 121, 364, ... OK. Easy to compute.  
+Sedgewick. 1, 5, 19, 41, 109, 209, 505, 929, 2161,... Good. Tough to beat in empirical studies.  
+（merging of (9 ⨉ 4i) – (9 ⨉ 2i) + 1 and 4i – (3 ⨉ 2i) + 1）(i为指数)
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Shellsort1.png)
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Shellsort2.png)
+
+#### Shuffling
+策略：  
+>In iteration i, pick integer r between 0 and i uniformly at random.  
+Swap a\[i] and a\[r].
+
+#### 作业 Dequeue
+
 ### 1.3 Week3
 ### 1.4 Week4
 ### 1.5 Week5
