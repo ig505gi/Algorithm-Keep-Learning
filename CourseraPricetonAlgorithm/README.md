@@ -126,7 +126,37 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 ・Has a method that uses a Comparator.  
 ・Uses tuned quicksort for primitive types; tuned mergesort for objects.  
 
-### 1.4 Week4
+#### Sorting Summary
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SortingSummary.png)
+
+#### 作业 Collinear
+
+### 1.4 Week4 Priority Queue & Elementary Symbol Tables
+
+#### Binary Heap
+数组实现如图：![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Heap.png)
+
+主要操作依靠swim和sink来完成
+
+#### Immutability: implementing in Java
+>Immutable data type. Can't change the data type value once created.  
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Immutability.png)
+
+#### HeapSort
+>First pass.  
+>・Build heap using bottom-up method.  保证父亲一定比孩子大
+>Second pass.   
+>・Remove the maximum,one at a time.   将root(最大)移到尾部，并删除，然后将root给sink下去
+>・Leave in array, instead of nulling out.  循环遍历剩下的，同样策略，直到没有元素
+
+#### Symbol Table
+>Key-value pair abstraction.  
+>・*Insert* a value with specified key.  
+>・Given a key, *search* for the corresponding value.  
+
+#### 作业 8Puzzle
+
 ### 1.5 Week5
 ## 2.Part2
 ### 2.1 Week1
