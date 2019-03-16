@@ -158,6 +158,67 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 #### 作业 8Puzzle
 
 ### 1.5 Week5
+
+#### 2-3 tree
+>Allow 1 or 2 keys per node.  
+・2-node: one key, two children.  
+・3-node: two keys, three children.  
+
+在讲红白树之前讲了2-3 tree，对理解红白树起到了至关重要的作用  
+
+>Search.
+・Compare search key against keys in node.  
+・Find interval containing search key.  
+・Follow associated link (recursively).
+
+>Insertion into a 3-node at bottom.  
+・Add new key to 3-node to create temporary 4-node.  
+・Move middle key in 4-node into parent.  
+・Repeat up the tree, as necessary.  
+・If you reach the root and it's a 4-node, split it into three 2-nodes.  
+
+数学证明，2-3tree有着很好的balance
+
+#### Left-leaning red-black BSTs 
+
+(Guibas-Sedgewick 1979 and Sedgewick 2007)  
+用两个2-node来取代2-3树中的 3-node：![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/RedBlackTree.png)  
+性质：
+>A BST such that:  
+・No node has two red links connected to it.  
+・Every path from root to null link has the same number of black links.  
+・Red links lean left. 
+
+实现的主要三个子操作：
+1. Rotation left: 将左倾的红线变为右倾  
+2. Rotation right: 将右倾的红线变为左倾
+3. Color flip： 将有两条红线节点的父亲节点变为红线
+
+情况很多，但是最后的代码很简单，因为很多情况可以相互转化！如图：  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/RedBlackTree2.png)  
+
+根据情况图可以判断，先进行坐旋转，再右旋转，再改变颜色。
+
+#### SearchTree Summary
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SearchTree.png)  
+
+#### B-tree
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/B-Tree.png)  
+有着很广泛的应用：
+>Red-black trees are widely used as system symbol tables.  
+・Java: java.util.TreeMap, java.util.TreeSet.  
+・C++ STL: map, multimap, multiset.  
+・Linux kernel: completely fair scheduler, linux/rbtree.h.  
+・Emacs: conservative stack scanning.  
+
+>B-tree variants. B+ tree, B*tree, B# tree, ...  
+
+>B-trees (and variants) are widely used for file systems and databases.  
+・Windows: NTFS.  
+・Mac: HFS, HFS+.  
+・Linux: ReiserFS, XFS, Ext3FS, JFS.  
+・Databases: ORACLE, DB2, INGRES, SQL, PostgreSQL.  
+
 ## 2.Part2
 ### 2.1 Week1
 ### 2.2 Week2
