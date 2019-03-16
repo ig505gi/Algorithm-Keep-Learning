@@ -105,7 +105,7 @@ public class FastCollinearPoints {
     }
 	
 	public static void main(String[] args) {
-		In in = new In("src/coursera/algorithm1/week3/input8000.txt"); 
+		In in = new In("src/algorithm1/week3/input/input8000.txt"); 
         int n = in.readInt();
         StdOut.println("total "+n+" points");
         Point[] points = new Point[n];
