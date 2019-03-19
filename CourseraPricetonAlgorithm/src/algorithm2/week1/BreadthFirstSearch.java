@@ -3,22 +3,37 @@ package algorithm2.week1;
 import edu.princeton.cs.algs4.Graph;
 import edu.princeton.cs.algs4.Queue;
 
-public class BreadthFirstSearch {
-	private Graph graph;
-	private int v;
-	private int[] edgeTo;
-	private boolean[] visited;
-	private int[] distTo;
+public final class BreadthFirstSearch {
+	private final Graph graph;
+	private final int v;
+	private final int[] edgeTo;
+	private final boolean[] visited;
+	private final int[] distTo;
 	
 	public BreadthFirstSearch(Graph g, int v) {
 		this.graph = g;
 		this.v = v;
 		this.edgeTo = new int[g.V()];
 		this.visited = new boolean[g.V()];
-		this.distTo = new int[g.V()];	
+		this.distTo = new int[g.V()];
+		//遍历完成
+		bfs2();
+	}
+	
+	public int edgeTo(int w) {
+		return edgeTo[w];
+	}
+	
+	public int distTo(int w) {
+		return distTo[w];
+	}
+	
+	public boolean visited(int w) {
+		return visited[w];
 	}
 	// 自己写的版本
-	public void bfs1() {
+	@SuppressWarnings("unused")
+	private void bfs1() {
 		Queue<Integer> q = new Queue<Integer>();
 		visited[v] = true;
 		q.enqueue(v);	
@@ -35,7 +50,7 @@ public class BreadthFirstSearch {
 		}		
 	}
 	
-	// 课程里的版本	
+	// 课程里的版本
 	private void bfs2() {
 		Queue<Integer> q = new Queue<Integer>();
 		visited[v] = true;
@@ -55,7 +70,6 @@ public class BreadthFirstSearch {
 		}
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 
