@@ -20,12 +20,14 @@ WordNet类通过读取两个txt，
 3. 因此，构造函数要做如下事情：
 3.1 读取文件名字， 遍历WordNet.txt, 创建如上说的set
 3.2 遍历hypernyms.txt 创建DAG
+4. 建立一个String 数组，保存每行信息。。这样由vertices找synset很快
 
 #### 3. SAP
 1. 传入的是不一定是DAG，因此需要考虑有环的情况
 2. 计算length的时候，开始想的bfs先遍历v，再遍历w，这样每次都要遍历完
 3. 想法改进：v和w同时遍历，但每走一步进行判断，是否该点是否已经被对方遍历，如果对方遍历了，此时不一定最短！3 + 3 也有 1 + 4的可能
 3.1 想法不对！
+3.2 直接用自带的可以传入 iteratable<T> 的多个点为参数的 BreadthFirstDirectedPaths.java
 
 #### 4. immutable
 需要在构造的时候复制过去，不应该直接指向
