@@ -69,7 +69,7 @@ DAG： Directed acyclic graph. 有向无环图
 ・Phase 2: run DFS on G, considering vertices in order given by first DFS.  
 
 (GR指：Reverse graph，且 GR和G的Strong components相同)
-### 2.2 Week2 Minumum Spaning Tree & 
+### 2.2 Week2 Minumum Spaning Tree & Shortest Paths
 
 #### Minumum Spaning Tree
 定义：  
@@ -107,6 +107,23 @@ Ex 2.2 eager 位置一个MinPQ<Vertices(Integer)>, edgeTo[], weight[], 保存的
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/eager.png)  
 decrease priority操作：提高或者降低priority操作，需要重新排序  
 不能用MinPQ实现，需要新的数据结构IndexMinPQ来完成  
+
+#### Edge Relaxation
+
+>Relax edge e = v→w.
+・ distTo\[v] is length of shortest known path from s to v.  
+・ distTo\[w] is length of shortest known path from s to w.  
+・ edgeTo\[w] is last edge on shortest known path from s to w.  
+・If e = v→w gives shorter path to w through v, update both distTo\[w] and edgeTo\[w].  
+
+加入新的edge需要进行Relaxation操作，判断是否更新  
+
+因此有一个通用的解法：从没有edge开始，每加一条边就进行Relaxation操作，直到所有边加入  
+>Efficient implementations. How to choose which edge to relax?  
+Ex 1. Dijkstra's algorithm (nonnegative weights).  
+Ex 2. Topological sort algorithm (no directed cycles).  
+Ex 3. Bellman-Ford algorithm (no negative cycles).  
+
 
 ### 2.3 Week3
 ### 2.4 Week4
