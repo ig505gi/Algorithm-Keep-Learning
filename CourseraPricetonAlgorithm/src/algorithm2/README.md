@@ -1,6 +1,6 @@
 # 2.Part2
 
-### 2.1 Week1
+### 2.1 Week1 Graphs
 
 #### Design pattern for graph processing
 >Design pattern. Decouple graph data type from graph processing.  
@@ -69,7 +69,45 @@ DAG： Directed acyclic graph. 有向无环图
 ・Phase 2: run DFS on G, considering vertices in order given by first DFS.  
 
 (GR指：Reverse graph，且 GR和G的Strong components相同)
-### 2.2 Week2
+### 2.2 Week2 Minumum Spaning Tree & 
+
+#### Minumum Spaning Tree
+定义：  
+>A spanning tree of G is a subgraph T that is both a tree (connected and acyclic) and spanning (includes all of the vertices).  
+ 
+#### greed algorithm实现  
+好像有个前提，weight is distinct，有重复就不止一个解  
+>Cut property. Given any cut, the crossing edge of min weight is in the MST.
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/cutProperty.png)  
+>steps:
+・Start with all edges colored gray.  
+・Find cut with no black crossing edges; color its min-weight edge black.  
+・Repeat until V - 1 edges are colored black.  
+
+因此重点是如何选择cut！
+>Efficient implementations. Choose cut? Find min-weight edge?  
+Ex 1. Kruskal's algorithm.   
+Ex 2. Prim's algorithm.   
+Ex 3. Borüvka's algorithm.  
+
+Ex 1. 是贪婪算法的一种特殊情况  
+把边的权值排序，从小到大，如果加入MST不产生环，则就是需要的边，如果产生环，去除，直到所有点都在MST中。  
+Ex 1.1 如何找环：1. DFS遍历。 2.Union Find，如果v和w在一个Union中，则产生了环
+
+#### Prim's Algorithm 
+Ex 2. 是贪婪算法的一种特殊情况   
+>・Start with vertex 0 and greedily grow tree T.  
+・Add to T the min weight edge with exactly one endpoint in T.  
+・Repeat until V - 1 edges.  
+
+Ex 2.1 Lazy 维持一个MinPQ<Edge>, 所有的边的顶点都是在T中的  
+Ex 2.2 eager 位置一个MinPQ<Vertices(Integer)>, edgeTo[], weight[], 保存的是能靠近T的所有点的最短路径，每次从最近的所有点中选出一个加入T  
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/eager.png)  
+decrease priority操作：提高或者降低priority操作，需要重新排序  
+不能用MinPQ实现，需要新的数据结构IndexMinPQ来完成  
+
 ### 2.3 Week3
 ### 2.4 Week4
 ### 2.5 Week5
