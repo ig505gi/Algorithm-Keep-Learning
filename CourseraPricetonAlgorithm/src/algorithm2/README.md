@@ -107,6 +107,12 @@ Ex 2.2 eager 位置一个MinPQ<Vertices(Integer)>, edgeTo[], weight[], 保存的
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/eager.png)  
 decrease priority操作：提高或者降低priority操作，需要重新排序  
 不能用MinPQ实现，需要新的数据结构IndexMinPQ来完成  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/IndexMinPQ.png)  
+
+#### shortest path
+>Goal. Find the shortest path from s to every other vertex.  
+
+这节课考虑的SP都是：single-source shortest paths
 
 #### Edge Relaxation
 
@@ -116,6 +122,7 @@ decrease priority操作：提高或者降低priority操作，需要重新排序
 ・ edgeTo\[w] is last edge on shortest known path from s to w.  
 ・If e = v→w gives shorter path to w through v, update both distTo\[w] and edgeTo\[w].  
 
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/relaxation.png)  
 加入新的edge需要进行Relaxation操作，判断是否更新  
 
 因此有一个通用的解法：从没有edge开始，每加一条边就进行Relaxation操作，直到所有边加入  
@@ -124,6 +131,26 @@ Ex 1. Dijkstra's algorithm (nonnegative weights).
 Ex 2. Topological sort algorithm (no directed cycles).  
 Ex 3. Bellman-Ford algorithm (no negative cycles).  
 
+**Ex 1. Dijkstra's algorithm**  
+>・Consider vertices in increasing order of distance from s (non-tree vertex with the lowest distTo[] value).  
+・Add vertex to tree and relax all edges pointing from that vertex.   
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/dijkstrasAlgorithm.png)  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/dijkstrasRelaxation.png)  
+
+**Ex 2. Topological sort algorithm**
+>Acyclic shortest paths demo  
+ ・Consider vertices in topological order.  
+ ・Relax all edges pointing from that vertex.  
+ 
+**Ex 3. Bellman-Ford algorithm**
+>Initialize distTo\[s] = 0 and distTo\[v] = ∞ for all other vertices.
+ Repeat V times: - Relax each edge.  
+ 
+ 虽然最坏的情况是EV的复杂度，但实际用起来，平均是E+V的复杂度  
+ 
+#### Cost Summary
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/CostSummary.png)  
 
 ### 2.3 Week3
 ### 2.4 Week4
