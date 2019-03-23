@@ -20,36 +20,6 @@ public class SeamCarver {
 				rgbs[row][col] = currentPicture.getRGB(col, row);
 			}
 		}
-		/**
-		 * 这里的代码是将enregy当成成员变量，这样内存会多，
-		 * 
-		 * 
-		// 计算energy
-		// 2.边界赋值1000
-		energy = new double[width()][height()];
-		for (int row = 0; row < height(); row++) {
-			energy[0][row] = 1000.0;
-			energy[width() - 1][row] = 1000.0;
-		}
-		for (int col = 0; col < width(); col++) {
-			energy[col][0] = 1000.0;
-			energy[col][height() - 1] = 1000.0;
-		}
-		
-		// 3. 根据rgb值计算energy
-		for (int col = 1; col < width() - 1; col++) {
-			for (int row = 1; row < height() - 1; row++) {
-				int rx = getRed(rgbs[col - 1][row])   - getRed(rgbs[col + 1][row]);
-				int gx = getGreen(rgbs[col - 1][row]) - getGreen(rgbs[col + 1][row]);
-				int bx = getBlue(rgbs[col - 1][row])  - getBlue(rgbs[col + 1][row]);
-				int ry = getRed(rgbs[col][row - 1])   - getRed(rgbs[col][row + 1]);
-				int gy = getGreen(rgbs[col][row - 1]) - getGreen(rgbs[col][row + 1]);
-				int by = getBlue(rgbs[col][row - 1])  - getBlue(rgbs[col][row + 1]);
-				energy[col][row] = Math.sqrt(rx * rx + gx * gx + bx * bx +
-						ry * ry + gy * gy + by * by);
-			}
-		}
-		*/
 	}
 	
 	private int getRed(int rgb) {
@@ -124,7 +94,7 @@ public class SeamCarver {
 	public int[] findVerticalSeam() // sequence of indices for vertical seam
 	{
 		// 使用拓扑排序， 每次循环一行，因为每行只能从上一行得到
-		// 遍历到最后一行的时候，选出energyTo最小的，然后一直找edgeTo，放入stack，返回
+		// 遍历到最后一行的时候，选出energyTo最小的，然后一直找edgeTo, 返回即可
 		
 		// 1. 初始化energy
 		double energy[][] = new double[height()][width()];
