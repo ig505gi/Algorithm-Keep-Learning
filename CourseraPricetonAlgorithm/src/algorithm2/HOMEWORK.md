@@ -1,7 +1,7 @@
 ## 作业
 
 ### WEEK1 WordNet
-经过连个小时的debug和修改，终于拿到第一个满分！。。不过这个作业预计3小时。。是做到现在预计时间最短的一个。。  
+经过两个小时的debug和修改，终于拿到第一个满分！。。不过这个作业预计3小时。。  
 ***一定要提前看checklist，有很大帮助！！***  
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Part2Week1.png)
 #### 1. 理解
@@ -33,3 +33,38 @@ WordNet类通过读取两个txt，
 
 #### 4. immutable
 需要在构造的时候复制过去，不应该直接指向
+
+
+### WEEK2 SeamCarver
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Part2Week2.png)  
+debug最少的一次！也是因为提前看了checklist，避免了很多问题  
+
+####  1.理解
+思路很简单：  
+1. 找到图片中能量最低的一条缝  
+2. 删除这条缝  
+
+#### 2. 成员变量  
+这道题花时间最长的就是在定义成员变量上，可选有： 
+1. Picture类 currentPicture  
+2. int\[]\[] 二维数组 rbgs  
+3. energy\[]\[] 二维数组 又每个点计算得到的能量  
+
+思考1：1、2、3都是成员变量，能量由所有的rgb来计算获得，因为删除了一条缝之后，energy就会变，要更新，而且energy作为成员变量还会导致内存增加，根据checklist，energy不作为成员变量更好  
+思考2：更节省空间，只有currentPicture作为成员变量，那么每次删除操作都需要生成Picture对象，时间会大大增加  
+最终方案：1、2为成员变量，每次查询、删除、反转操作都对rgbs数组进行，避免Picture对象的操作，只有在最后picture()操作的时候更新currentPicture  
+
+#### 3. findMinEnergy
+
+1. 使用拓扑排序，正常的拓扑排序是需要BFS的，但是对于图片矩阵，比较特殊，每行的energyTo只能从上一行得到， 
+2. 因此遍历的时候，更像是BFS，遍历每行计算energyTo，并记录PathTo即可， 
+3. 遍历到最后一行的时候，选出energyTo最小的，然后一直找edgeTo, 返回即可  
+
+#### 4. transpose操作
+这个是纠结了很长时间的点，在checklist上说：  
+>Don’t explicitly transpose the Picture or int[][] until you need to do so. For example, if you perform a sequence of 50 consecutive horizontal seam removals, you should need only two transposes (not 100).   
+
+最终还是没有实现这条，因为会导致energy()取不到正确的值，说明自己构造的数据结构还是有一些小问题。。  
+最后实现还是在find和remove前后分别做了transpose操作，时间复杂度还是达到了要求！  
+
+### WEEK3
