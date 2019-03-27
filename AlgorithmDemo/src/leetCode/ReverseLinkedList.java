@@ -26,7 +26,7 @@ public class ReverseLinkedList {
 	
 	public ListNode reverseListRecusive(ListNode head) {
 		return reverse(head, null);
-	}
+	} 
 
 
 	private ListNode reverse(ListNode head, ListNode newHead) {
