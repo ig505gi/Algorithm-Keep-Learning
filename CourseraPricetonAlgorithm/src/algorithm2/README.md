@@ -192,7 +192,67 @@ Java代码实现，首先要构造residual network
 ・Sensor placement for homeland security.  
 ・liver and hepatic vascularization segmentation
 
-#### Radix Sorts
+#### Key-Indexed Counting 
+Goal. Sort an array a[] of N integers between 0 and R - 1.  
+・Count frequencies of each letter using key as index.  
+・Compute frequency cumulates which specify destinations.  
+・Access cumulates using key as index to move items.  
+・Copy back into original array.  
+
+基数排序的基本原则
+
+#### LSD Radix Sort
+>LSD string (radix) sort.
+・Consider characters from right to left.
+・Stably sort using dth character as the key (using key-indexed counting).  
+
+Sort one million 32-bit integers.  
+用LSD排序最快，把其中后几位当做第一个loop，然后后第二个几位。。。。
+
+#### MSD Radix Sort
+>MSD string (radix) sort.  
+・Partition array into R pieces according to first character (use key-indexed counting).  
+・Recursively sort all strings that start with each character (key-indexed counts delineate subarrays to sort).  
+
+和LSD比，MSD是从第一位往后面比，然后递归每部分，比第二位。。。
+
+问题：对于小序列，也需要建立count\[]数组，很慢，需要cutoff解决，递归到很小的时候，直接用插入排序
+
+#### 排序算法对比
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/LSDMSDperfermance.png)  
+
+MSD和Quick Sort对比：
+>Disadvantages of MSD string sort.  
+・Extra space for aux\[].  
+・Extra space for count\[].  
+・Inner loop has a lot of instructions.  
+・Accesses memory "randomly" (cache inefficient). 
+
+>Disadvantage of quicksort.  
+・Linearithmic number of string compares (not linear).  
+・Has to rescan many characters in keys with long prefix matches.  
+
+#### 3-way string quicksort
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/3wayquicksort.png)
+
+#### suffix sort  
+什么是suffix  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/suffixsort.png)
+
+查找非常快，但是也有缺陷：  
+比如有20million的数据，重复的是10million，就查找不出来，因为重复比较的次数是1+2+3.。。+10million，是n2时间复杂度了  
+
+#### Manber-Myers MSD algorithm
+是一个nlogn复杂度的算法，非常amazing 
+>・Phase 0: sort on first character using key-indexed counting sort.  
+・Phase i: given array of suffixes sorted on first $2^(i-1)$ characters,  
+   create array of suffixes sorted on first $2^i$ characters.  
+
+最坏情况下的时间复杂度也是nlogn  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/MMsuffixsort.png)  
+假如前4个字母比较完了，直接比较第5-8个字母，因为这些已经对比过了，只要把他的index+4，就是之前比较过的顺序  
+可以注意下面英文注释。  
+
 
 ### 2.4 Week4
 ### 2.5 Week5
