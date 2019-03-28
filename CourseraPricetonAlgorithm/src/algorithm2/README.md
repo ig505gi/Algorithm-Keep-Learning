@@ -169,5 +169,30 @@ Ex 3. Bellman-Ford algorithm (no negative cycles).
 
 直到图中没有可加路径，即任意一条路径上，forward edges达到了最满，而backward edge不为空。
 
+Java代码实现，首先要构造residual network
+>Key point. Augmenting path in original network is equivalent to directed path in residual network.  
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/ResidualNetWork.png)  
+主循环中，判断是否有可加路径，没有就终结，得到结果；有的话，从t开始遍历，找到bottle（最小的可加值），更新所有flow  
+如何判断是否有Augmenting Path:  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/AugmentingPath.png)  
+
+#### Applications
+>・Data mining.  
+・Open-pit mining.  
+・Bipartite matching.  
+・Network reliability.  
+・Baseball elimination.  
+・Image segmentation.  
+・Network connectivity.  
+・Distributed computing.  
+・Security of statistical data.  
+・Egalitarian stable matching.  
+・Multi-camera scene reconstruction.  
+・Sensor placement for homeland security.  
+・liver and hepatic vascularization segmentation
+
+#### Radix Sorts
+
 ### 2.4 Week4
 ### 2.5 Week5
