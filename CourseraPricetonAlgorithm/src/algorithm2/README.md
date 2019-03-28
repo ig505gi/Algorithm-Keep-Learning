@@ -193,7 +193,7 @@ Java代码实现，首先要构造residual network
 ・liver and hepatic vascularization segmentation
 
 #### Key-Indexed Counting 
-Goal. Sort an array a[] of N integers between 0 and R - 1.  
+>Goal. Sort an array a[] of N integers between 0 and R - 1.  
 ・Count frequencies of each letter using key as index.  
 ・Compute frequency cumulates which specify destinations.  
 ・Access cumulates using key as index to move items.  
@@ -202,8 +202,8 @@ Goal. Sort an array a[] of N integers between 0 and R - 1.
 基数排序的基本原则
 
 #### LSD Radix Sort
->LSD string (radix) sort.
-・Consider characters from right to left.
+>LSD string (radix) sort.  
+・Consider characters from right to left.  
 ・Stably sort using dth character as the key (using key-indexed counting).  
 
 Sort one million 32-bit integers.  
@@ -245,8 +245,8 @@ MSD和Quick Sort对比：
 #### Manber-Myers MSD algorithm
 是一个nlogn复杂度的算法，非常amazing 
 >・Phase 0: sort on first character using key-indexed counting sort.  
-・Phase i: given array of suffixes sorted on first $2^(i-1)$ characters,  
-   create array of suffixes sorted on first $2^i$ characters.  
+・Phase i: given array of suffixes sorted on first 2^(i-1) characters,  
+   create array of suffixes sorted on first 2^i characters.  
 
 最坏情况下的时间复杂度也是nlogn  
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/MMsuffixsort.png)  
