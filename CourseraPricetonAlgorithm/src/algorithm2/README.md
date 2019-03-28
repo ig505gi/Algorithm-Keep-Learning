@@ -154,6 +154,20 @@ Ex 3. Bellman-Ford algorithm (no negative cycles).
 
 ### 2.3 Week3  Maximum Flow & Minimum Cut & Radix Sorts
 
-#### 
+#### introduction
+这两个问题是实际上是一个问题！结果是一样的
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/MaxFlowMinCut.png)  
+
+#### Ford-Fulkerson Algorithm
+>Augmenting path. Find an undirected path from s to t such that:  
+・Can increase flow on forward edges (not full).  
+・Can decrease flow on backward edge (not empty).  
+
+可加路径（自己翻译的）的概念，任意一条不限方向的路径，要满足一下要求：
+1. 含有正向（从s到t的）且没有满的边的路径，我们需要将其变成full
+2. 有回边的（与s到t路径相反的）且不为空的路径，我们需要减小，并且使正向的变成full
+
+直到图中没有可加路径，即任意一条路径上，forward edges达到了最满，而backward edge不为空。
+
 ### 2.4 Week4
 ### 2.5 Week5
