@@ -154,6 +154,105 @@ Ex 3. Bellman-Ford algorithm (no negative cycles).
 
 ### 2.3 Week3  Maximum Flow & Minimum Cut & Radix Sorts
 
-#### 
+#### introduction
+这两个问题是实际上是一个问题！结果是一样的
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/MaxFlowMinCut.png)  
+
+#### Ford-Fulkerson Algorithm
+>Augmenting path. Find an undirected path from s to t such that:  
+・Can increase flow on forward edges (not full).  
+・Can decrease flow on backward edge (not empty).  
+
+可加路径（自己翻译的）的概念，任意一条不限方向的路径，要满足一下要求：
+1. 含有正向（从s到t的）且没有满的边的路径，我们需要将其变成full
+2. 有回边的（与s到t路径相反的）且不为空的路径，我们需要减小，并且使正向的变成full
+
+直到图中没有可加路径，即任意一条路径上，forward edges达到了最满，而backward edge不为空。
+
+Java代码实现，首先要构造residual network
+>Key point. Augmenting path in original network is equivalent to directed path in residual network.  
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/ResidualNetWork.png)  
+主循环中，判断是否有可加路径，没有就终结，得到结果；有的话，从t开始遍历，找到bottle（最小的可加值），更新所有flow  
+如何判断是否有Augmenting Path:  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/AugmentingPath.png)  
+
+#### Applications
+>・Data mining.  
+・Open-pit mining.  
+・Bipartite matching.  
+・Network reliability.  
+・Baseball elimination.  
+・Image segmentation.  
+・Network connectivity.  
+・Distributed computing.  
+・Security of statistical data.  
+・Egalitarian stable matching.  
+・Multi-camera scene reconstruction.  
+・Sensor placement for homeland security.  
+・liver and hepatic vascularization segmentation
+
+#### Key-Indexed Counting 
+>Goal. Sort an array a[] of N integers between 0 and R - 1.  
+・Count frequencies of each letter using key as index.  
+・Compute frequency cumulates which specify destinations.  
+・Access cumulates using key as index to move items.  
+・Copy back into original array.  
+
+基数排序的基本原则
+
+#### LSD Radix Sort
+>LSD string (radix) sort.  
+・Consider characters from right to left.  
+・Stably sort using dth character as the key (using key-indexed counting).  
+
+Sort one million 32-bit integers.  
+用LSD排序最快，把其中后几位当做第一个loop，然后后第二个几位。。。。
+
+#### MSD Radix Sort
+>MSD string (radix) sort.  
+・Partition array into R pieces according to first character (use key-indexed counting).  
+・Recursively sort all strings that start with each character (key-indexed counts delineate subarrays to sort).  
+
+和LSD比，MSD是从第一位往后面比，然后递归每部分，比第二位。。。
+
+问题：对于小序列，也需要建立count\[]数组，很慢，需要cutoff解决，递归到很小的时候，直接用插入排序
+
+#### 排序算法对比
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/LSDMSDperfermance.png)  
+
+MSD和Quick Sort对比：
+>Disadvantages of MSD string sort.  
+・Extra space for aux\[].  
+・Extra space for count\[].  
+・Inner loop has a lot of instructions.  
+・Accesses memory "randomly" (cache inefficient). 
+
+>Disadvantage of quicksort.  
+・Linearithmic number of string compares (not linear).  
+・Has to rescan many characters in keys with long prefix matches.  
+
+#### 3-way string quicksort
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/3wayquicksort.png)
+
+#### suffix sort  
+什么是suffix  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/suffixsort.png)
+
+查找非常快，但是也有缺陷：  
+比如有20million的数据，重复的是10million，就查找不出来，因为重复比较的次数是1+2+3.。。+10million，是n2时间复杂度了  
+
+#### Manber-Myers MSD algorithm
+是一个nlogn复杂度的算法，非常amazing 
+>・Phase 0: sort on first character using key-indexed counting sort.  
+・Phase i: given array of suffixes sorted on first 2^(i-1) characters,  
+   create array of suffixes sorted on first 2^i characters.  
+
+最坏情况下的时间复杂度也是nlogn  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/MMsuffixsort.png)  
+假如前4个字母比较完了，直接比较第5-8个字母，因为这些已经对比过了，只要把他的index+4，就是之前比较过的顺序  
+可以注意下面英文注释。  
+
+
 ### 2.4 Week4
 ### 2.5 Week5
