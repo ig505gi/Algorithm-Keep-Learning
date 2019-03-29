@@ -233,7 +233,7 @@ MSD和Quick Sort对比：
 ・Has to rescan many characters in keys with long prefix matches.  
 
 #### 3-way string quicksort
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/3wayquicksort.png)
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/3wayStringQuickSort.png)
 
 #### suffix sort  
 什么是suffix  
