@@ -109,7 +109,7 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 
 #### 3-way QuickSort
 当序列中有很多重复的值时，才会这种方法效率很高
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/3wayQuickSort.png)
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/threeWayQuickSort.png)
 
 #### Java System Sorts
 >Arrays.sort().  
