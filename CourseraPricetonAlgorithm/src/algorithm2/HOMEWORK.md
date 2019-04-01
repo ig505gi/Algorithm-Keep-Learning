@@ -67,4 +67,42 @@ debug最少的一次！也是因为提前看了checklist，避免了很多问题
 最终还是没有实现这条，因为会导致energy()取不到正确的值，说明自己构造的数据结构还是有一些小问题。。  
 最后实现还是在find和remove前后分别做了transpose操作，时间复杂度还是达到了要求！  
 
-### WEEK3
+### WEEK3 baseballElimination
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Part2Week3.png)  
+4个小时读题和写加上debug，应该是最快的一次了，看了checklist果然会避免很多问题，不过这次也主要是数学问题，较简单  
+#### 1. 理解
+成员变量不用纠结，该存什么存什么  
+纠结点1：teamsName如何存，开始用了数组，发现由name找index不方便，改为map存，String为key，发现之后用index找name也不方便。。  
+最后用还是用了数组储存，如果要用name找index，写了一个私有getIndex方法，遍历即可  
+纠结点2：如何将flownetwork的顶点标号和储存信息的index对应起来，纠结了一番，最后实现的还不错
+
+然后就剩下基本的编程和数学问题了
+
+#### 2.主要思想
+> If all edges in the maxflow that are pointing from s are full, then this corresponds to assigning winners to all of the remaining games in such a way that no team wins more games than x. If some edges pointing from s are not full, then there is no scenario in which team x can win the division.   
+
+开始这个数学问题还不是很理解，慢慢写的时候理解了，核心思想，只要实现了网络，就好办了
+
+#### 3.最烦人的编号问题
+```
+// 添加边，s顶点编号为0，连接的(n-1)(n-2)/2个节点的顶点gameVertice编号从 n- 2 到 v-2
+// 连接t顶点teamVertice的n-1个节点编号从1 到 n-1, t顶点编号为 v - 1
+// 在network中的vertice如果小于等于interstIndex，则 需要 -1才能得到w,l,r,teamsName的index
+// 如果大于interestIndex，直接就可以直接当做index取w，l，r等
+```
+直接把注释拿来用了，最吃力的主循环如下：
+```
+// 连接s和gameVertice,连接gameVertice和teamVertice
+for (int gameVertice = n, teamVertice1 = 1, teamVertice2 = teamVertice1 + 1; 
+    gameVertice < V - 1 && teamVertice1 <= n -2; gameVertice++, teamVertice2++) {
+    // 这个条件语句使两个teamVertice如下这样遍历
+    // 1-2，1-3，1-4，2-3，2-4，3-4
+    if (teamVertice2 > n - 1) {
+        teamVertice1++; 
+        teamVertice2 = teamVertice1 + 1;
+    }
+    //后面略
+}
+```
+开始想找到gameVertice和teamVertice的函数关系，之后想到写代码而不是必须要求出这个函数关系：  
+每次teamVertice2遍历完n-1，就可以把teamVertice1加1，然后teamVertice2从teamVertice1+1开始遍历
