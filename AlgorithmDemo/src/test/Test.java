@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class Test {
 
@@ -22,7 +25,13 @@ public class Test {
 		
 		System.out.printf("%-10f|%-10f|", cc, dd);
 		String str = "aaa";
-		System.out.print(str.equals("aaa"));
+		System.out.println(str.equals("aaa"));
+		System.out.println(-1 % 4);
+		System.out.println(Integer.MAX_VALUE + ": "+1165911996);
+		
+		HashMap<Integer,Integer> a = new HashMap<Integer, Integer>();
+		ArrayList<Integer> ab = new ArrayList<Integer>();
+		HashSet<Integer> ccc = new HashSet<Integer>();
 	}
 
 }
