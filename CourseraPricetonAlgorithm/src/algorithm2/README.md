@@ -253,6 +253,72 @@ MSD和Quick Sort对比：
 假如前4个字母比较完了，直接比较第5-8个字母，因为这些已经对比过了，只要把他的index+4，就是之前比较过的顺序  
 可以注意下面英文注释。  
 
+### 2.4 Week4 Tries & Substring searching
+#### what's try?
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/tries.png)  
 
-### 2.4 Week4
+#### Ternary search tries (TST)
+特征：
+>・Store characters and values in nodes (not keys).  
+・Each node has 3 children: smaller (left), equal (middle), larger (right).  
+
+Node 结构：
+```
+private class Node {
+    private Value val; 
+    private char c;
+    private Node left, mid, right;
+}
+```
+实现比较简单：
+>Follow links corresponding to each character in the key.  
+・If less, take left link; if greater, take right link.  
+・If equal, take the middle link and move to the next key character.  
+Search hit. Node where search ends has a non-null value.  
+Search miss. Reach a null link or node where search ends has null value.  
+
+#### Character-based operations
+>Prefix match. Keys with prefix sh: she, shells, and shore.  
+Wildcard match. Keys that match .he: she and the.  
+Longest prefix. Key that is the longest prefix of shellsort: shells.  
+
+#### Cost summary compared to Hashing
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/CostSummaryWithTST.png)  
+
+>Hashing.  
+・Need to examine entire key.  
+・Search hits and misses cost about the same.  
+・Performance relies on hash function.  
+・Does not support ordered symbol table operations.  
+
+TSTs.
+・Works only for strings (or digital keys).  
+・Only examines just enough key characters.  
+・Search miss may involve only a few characters.   
+・Supports ordered symbol table operations (plus others!).  
+
+Bottom line. TSTs are:
+・Faster than hashing (especially for search misses).  
+・More flexible than red-black BSTs.  
+
+
+#### String symbol tables summary
+>Red-black BST.  
+・Performance guarantee: log N key compares.  
+・Supports ordered symbol table API.  
+Hash tables.  
+・Performance guarantee: constant number of probes.  
+・Requires good hash function for key type.  
+Tries. R-way, TST.  
+・Performance guarantee: log N characters accessed.  
+・Supports character-based operations.   
+
+#### Knuth-Morris-Pratt substring search (重点！！！)  
+当时自学数据结构的时候，啃书弄明白了点，就对这个算法记忆犹新。后来蹭软件学院的数据结构课，那个老师也讲了这个算法，但是我个人觉得那个老师讲的不好，当时也是一知半解。一直想把这个算法弄得清楚明白，终于来到了这里。第三次学习。  
+
+先奉上Priceton大学的Sedgewick老教授的评价：
+>But I just want to start by saying this is one of the coolest algorithms that we'll cover in this course. And it's not an algorithm that anyone would come up with without a lot of hard work, but understanding this algorithm really gives somebody an appreciation for what's possible with careful algorithmic thinking, even for such a simple problem as this. It's a quite ingenious method.  
+
+
+
 ### 2.5 Week5
