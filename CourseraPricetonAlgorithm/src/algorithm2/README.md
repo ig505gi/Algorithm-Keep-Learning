@@ -319,6 +319,18 @@ Tries. R-way, TST.
 先奉上Priceton大学的Sedgewick老教授的评价：
 >But I just want to start by saying this is one of the coolest algorithms that we'll cover in this course. And it's not an algorithm that anyone would come up with without a lot of hard work, but understanding this algorithm really gives somebody an appreciation for what's possible with careful algorithmic thinking, even for such a simple problem as this. It's a quite ingenious method.  
 
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/DFA.png)  
+
+利用DFA，时间复杂度能达到线性，如果和构造DFA呢，  
+首先是match的情况  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/DFAmatch.png) 
+然后是mismatch的情况，把pat\[1...j-1]用已经建成的部分DFA模拟，得到的X，就是目前j需要参照的state  
+因此，构造的时候，我们要始终维持一个X，是模拟的pat\[1...j-1]  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/DFAmismatch.png)  
+
+代码：  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/KMPcode.png)  
+非常简短  R是pat中字符出现的情况个数，如果过于大的话，占得空间就太大，当R很大的时候，可以使用NFA，额外空间只有M，用来记录每个j返回到前面的某个状态，而不是返回0.  
 
 
 ### 2.5 Week5
