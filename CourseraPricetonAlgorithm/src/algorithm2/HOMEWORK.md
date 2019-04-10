@@ -106,3 +106,21 @@ for (int gameVertice = n, teamVertice1 = 1, teamVertice2 = teamVertice1 + 1;
 ```
 开始想找到gameVertice和teamVertice的函数关系，之后想到写代码而不是必须要求出这个函数关系：  
 每次teamVertice2遍历完n-1，就可以把teamVertice1加1，然后teamVertice2从teamVertice1+1开始遍历
+
+### WEEK1 Boggle
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Part2Week4.png)  
+4个小时完成，不是很难，200行左右的代码
+
+#### 1. 理解题意
+1.1 读取dictionary保存  
+1.2 构建tries用来查询单词是否存在  
+1.3 深度优先遍历board即可
+
+#### 2. 主要代码
+第一部分是构建一个TST来保存字典，用于查找，因为开始用了SET来保存，有构建了一个没有value的TST来queryPrefix,  
+因为HashSet的contains操作应该也是O(1)的时间复杂度，因此用contains()来判断是否存在，
+用TST来检查是否是prefix，这点对性能影响十分大，因为如果不检查，每一个点遍历完的时间会非常长。。  
+
+第二部分就是对board进行DFS，用stack保存当前的格子，还用了一个和board大小一样的保存是否进栈，防止每个元素用一次以上  
+
+第三部分就是处理Qu的问题，在判断前处理一下就好了不用大量修改代码。  
