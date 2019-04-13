@@ -1,4 +1,4 @@
-package April10th.interviewHuawei;
+package April10th.huawei;
 
 import java.util.ArrayList;
 import java.util.Collections;

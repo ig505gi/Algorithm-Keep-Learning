@@ -1,8 +1,8 @@
-package interview.tencentApril5th;
+package April5th.tencent.first;
 
 import java.util.Arrays;
 import java.util.Scanner;
-public class First {
+public class Main {
     /**
      * 先判断有没有1 ，如果没有1 就无解，有1 一定有解
      * 用 values[0] 到values[n-2] 去等于 values[n - 1]

@@ -1,4 +1,4 @@
-package April10th.interviewHuawei;
+package April10th.huawei;
 
 import java.util.Arrays;
 import java.util.HashMap;

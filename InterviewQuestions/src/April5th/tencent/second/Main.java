@@ -1,8 +1,8 @@
-package interview.tencentApril5th;
+package April5th.tencent.second;
 
 
 import java.util.Scanner;
-public class Second {
+public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String a;

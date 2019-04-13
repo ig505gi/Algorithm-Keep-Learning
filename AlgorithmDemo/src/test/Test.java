@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -11,6 +12,11 @@ public class Test {
 	}
 
 	public static void main(String[] args) {
+		// 读取char
+		InputStreamReader sr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(sr);
+		// sr.read();
+		
 		double aa = 9.0;
 		double bb = 123.1231;
 		double cc = 123.12311;
