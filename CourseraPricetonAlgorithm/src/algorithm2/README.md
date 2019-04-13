@@ -333,4 +333,38 @@ Tries. R-way, TST.
 非常简短  R是pat中字符出现的情况个数，如果过于大的话，占得空间就太大，当R很大的时候，可以使用NFA，额外空间只有M，用来记录每个j返回到前面的某个状态，而不是返回0.  
 
 
-### 2.5 Week5
+### 2.5 Week5 Regular Expressions & Data Compression
+
+#### REs & DFAs
+>RE. Concise way to describe a set of strings.  
+DFA. Machine to recognize whether a given string is in a given set.  
+
+#### NFA implements
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/NFAsimu.png)  
+
+#### RE --> NFA
+从Re到NFA需要处理的，状态，联系，字符，匹配字符，括号，星号，或者  
+>States. Include a state for each symbol in the RE, plus an accept state.  
+Concatenation.  Add match-transition edge from state corresponding to characters in the alphabet to next state.  
+Alphabet. A B C D  
+Metacharacters. ( ) . * |  
+Parentheses. Add ε-transition edge from parentheses to next state.  
+Closure. Add three ε-transition edges for each * operator.  
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Closure.png)  
+>Or. Add two ε-transition edges for each | operator.  
+
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Or.png)  
+用stack来记录括号的信息  
+>Challenges. Remember left parentheses to implement closure and or; remember | to implement or.  
+Solution. Maintain a stack.  
+・( symbol: push ( onto stack.  
+・| symbol: push | onto stack.  
+・) symbol: pop corresponding ( and any intervening |; add ε-transition edges for closure/or.  
+
+自己实现了该NFA和RE的识别，详情见week5代码  
+
+#### Java Re
+Java中的正则表达式怎么用：  
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaRe.png)  
+
