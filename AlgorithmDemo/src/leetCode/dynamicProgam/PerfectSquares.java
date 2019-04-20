@@ -31,14 +31,17 @@ public class PerfectSquares {
         dp[0] = 0;
 		for (int j = 1; j < n + 1; j++) {
 			for(int i = 1; j - i * i >= 0; i++) {
+				System.out.println("j = " + j + ", i = " + i);
+				System.out.println("dp[" + j + "]:" + dp[j] + ", (j - i * i) =" + (j - i * i) + ", dp=" + (dp[j - i * i] + 1));
 				dp[j] = Math.min(dp[j], dp[j - i * i] + 1);
+				
 			}
 		}
 		return dp[n];
     }
 	public static void main(String[] args) {
 		PerfectSquares solution = new PerfectSquares();
-		System.out.println(solution.numSquares(120));
+		System.out.println(solution.numSquares(13));
 
 	}
 
