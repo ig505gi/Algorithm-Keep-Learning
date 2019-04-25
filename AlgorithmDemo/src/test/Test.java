@@ -23,6 +23,9 @@ public class Test {
 	}
 	public static void main(String[] args) {
 		System.out.println();
+		// StringBuffer
+		StringBuffer sb = new StringBuffer("adad adad");
+		sb.substring(0, sb.length());
 		// 测试char
 		int i = 65;
 		char numToc = (char) i;
