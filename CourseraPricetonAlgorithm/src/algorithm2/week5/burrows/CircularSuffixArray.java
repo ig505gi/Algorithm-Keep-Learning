@@ -1,6 +1,7 @@
 package algorithm2.week5.burrows;
 
 public class CircularSuffixArray {
+	
 	public CircularSuffixArray(String s) // circular suffix array of s
 	{
 		
