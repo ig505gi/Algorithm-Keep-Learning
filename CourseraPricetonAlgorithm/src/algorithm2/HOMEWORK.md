@@ -124,3 +124,23 @@ for (int gameVertice = n, teamVertice1 = 1, teamVertice2 = teamVertice1 + 1;
 第二部分就是对board进行DFS，用stack保存当前的格子，还用了一个和board大小一样的保存是否进栈，防止每个元素用一次以上  
 
 第三部分就是处理Qu的问题，在判断前处理一下就好了不用大量修改代码。  
+
+### WEEK5 Burrows
+理清思路： 
+压缩：
+1. 给出一个文件将其用BinaryStdIn读取，转化为字符串  
+2. 用Burrows-Wheeler Transform来encode，输入是原始String，输出是first和t\[]，first占用初始4bytes，目的：使重复字母能够在一起  
+   2.1 利用CircularSuffixArray，求Sorted Suffixes和t\[]，然后 index\[i] == 0的话，first=i  
+3. 用Move-to-front来encode，目的：特定的字符会出现更多的次数  
+   3.1. 维持一个256扩展ASCII表，每次读取8bits，每遇到一个字符就改变该表，把该字符放在表前  
+4. 用Huffman进行compress，原理：每遇到一个新的字符组合就扩展一次新表（不用自己实现） 
+
+解压缩：
+5. 用Huffman进行expand，原理同上，不用自己实现  
+6. 用Move-to-front来decode  
+   6.1. 解码过程和编码过程一样  
+7. 用Burrows-Wheeler Transform来decode，输入是first和t\[]，输出是原始String  
+   7.1. 通过对t\[]进行排序得到第一列  
+   7.2. 遇到首字母相同的情况：if i < j, then next\[i] < next\[j].    
+   7.3. 构造出next\[]，利用first，第一列和next\[]来还原原始String  
+8. 将原始String用BinaryStdOut输出，转化为原文件。
