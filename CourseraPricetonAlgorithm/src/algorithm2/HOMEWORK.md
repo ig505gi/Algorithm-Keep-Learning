@@ -126,7 +126,10 @@ for (int gameVertice = n, teamVertice1 = 1, teamVertice2 = teamVertice1 + 1;
 第三部分就是处理Qu的问题，在判断前处理一下就好了不用大量修改代码。  
 
 ### WEEK5 Burrows
-理清思路： 
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Part2Week5.png)  
+代码量不多，但是涉及的是压缩文件的思想，比较复杂，为了实现算法4这本书里的命令行花了不少时间，但是也学到了很多，最后理解思路，写代码，debug花了差不多10小时，一共下来可能有15个小时左右。  
+
+#### 1.理清思路： 
 压缩：
 1. 给出一个文件将其用BinaryStdIn读取，转化为字符串  
 2. 用Burrows-Wheeler Transform来encode，输入是原始String，输出是first和t\[]，first占用初始4bytes，目的：使重复字母能够在一起  
@@ -143,4 +146,9 @@ for (int gameVertice = n, teamVertice1 = 1, teamVertice2 = teamVertice1 + 1;
    7.1. 通过对t\[]进行排序得到第一列  
    7.2. 遇到首字母相同的情况：if i < j, then next\[i] < next\[j].    
    7.3. 构造出next\[]，利用first，第一列和next\[]来还原原始String  
-8. 将原始String用BinaryStdOut输出，转化为原文件。
+8. 将原始String用BinaryStdOut输出，转化为原文件。 
+
+#### 2.主要bug
+2.1 CirclarSuffixedArray中，当string长度为0是，不应该抛出异常，而是不初始化index，这样其他方法就要考虑index==null的情况  
+2.2 &和<<运算优先级问题，导致了first求错，<<比&优先级高  
+2.3 自己写的比较方法，如果出现字符串相同，会无限比较下去，这个说明了没考虑到位  
