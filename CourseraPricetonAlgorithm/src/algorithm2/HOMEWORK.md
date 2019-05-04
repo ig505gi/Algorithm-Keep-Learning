@@ -152,3 +152,8 @@ for (int gameVertice = n, teamVertice1 = 1, teamVertice2 = teamVertice1 + 1;
 2.1 CirclarSuffixedArray中，当string长度为0是，不应该抛出异常，而是不初始化index，这样其他方法就要考虑index==null的情况  
 2.2 &和<<运算优先级问题，导致了first求错，<<比&优先级高  
 2.3 自己写的比较方法，如果出现字符串相同，会无限比较下去，这个说明了没考虑到位  
+
+
+### 总结 
+![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Part2Score.png)  
+从3月18日开始到5月4日结束，一共47天中，共62小时左右，14天有学习网课和写代码，最终完成。
