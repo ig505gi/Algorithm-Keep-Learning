@@ -362,9 +362,33 @@ Solution. Maintain a stack.
 ・| symbol: push | onto stack.  
 ・) symbol: pop corresponding ( and any intervening |; add ε-transition edges for closure/or.  
 
-自己实现了该NFA和RE的识别，详情见week5代码  
 
 #### Java Re
 Java中的正则表达式怎么用：  
 ![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaRe.png)  
 
+### 2.6 Week6 Reduce & Lineal Progam
+
+#### 线性编程的应用场景： 思想是线性规划：  
+>Agriculture. Diet problem.  
+Computer science. Compiler register allocation, data mining.  
+Electrical engineering. VLSI design, optimal clocking.  
+Energy. Blending petroleum products.  
+Economics. Equilibrium theory, two-person zero-sum games.  
+Environment. Water quality management.  
+Finance. Portfolio optimization.  
+Logistics. Supply-chain management.  
+Management. Hotel yield management.  
+Marketing. Direct mail advertising.  
+Manufacturing. Production line balancing, cutting stock.  
+Medicine. Radioactive seed placement in cancer treatment.   
+Operations research. Airline crew assignment, vehicle routing.   
+Physics. Ground states of 3-D Ising spin glasses.  
+Telecommunication. Network design, Internet routing.   
+Sports. Scheduling ACC basketball, handicapping horse races.  
+
+#### Pivot 
+详细见PDF  
+
+#### P=NP？  
+涉及到的知识比较遥远，再需要的时候再去学习  
