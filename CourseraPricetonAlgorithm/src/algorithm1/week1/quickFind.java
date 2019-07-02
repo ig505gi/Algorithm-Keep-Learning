@@ -17,7 +17,7 @@ public class quickFind {
 	public void union(int p, int q) {
 		if(qf[p] != qf[q]) {
 			int pval = qf[p];
-			//将 与p相连的全部都变成p的出口
+			//将 与p相连的全部都变成 p的出口，也就是qf[q]
 			for(int i =0; i< qf.length;i++) {
 				if (qf[i] == pval)  qf[i] = qf[q];
 			}

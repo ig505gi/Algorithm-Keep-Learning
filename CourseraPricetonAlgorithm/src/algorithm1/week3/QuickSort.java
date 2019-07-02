@@ -29,12 +29,16 @@ public class QuickSort {
 		int j = hi + 1;
 		// 
 		while (true) {
+			// 从lo+1开始找出第一个大于等于a[lo]的元素
 			while (a[++i] < a[lo]) {
 				if (i == hi) break;
 			}
+			// 从hi开始找到第一个小于等于a[lo]的元素
 			while (a[--j] > a[lo]) {
 				if (j == lo) break;
 			}
+			// 假如 [2,3], lo=0,hi=1,此时i=hi=1,j=lo=0,出现了i>=j的情况
+			// 假如[3,2] ,lo=0,hi=1,此时 i=hi=1,j=hi=0 i=j,在下面第二个exch交换
 			if (i >= j) break;
 			exch(a, i, j);
 		}

@@ -50,7 +50,7 @@ public class BinaryTreeLevelOrderTraversal {
 Memory Usage: 37.4 MB, less than 39.89% of Java online submissions for Binary Tree Level Order Traversal.
 	 */
 	
-	public List<List<Integer>> levelOrder2(TreeNode root) {
+	public  List<List<Integer>> levelOrder2(TreeNode root) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         dfs(res, root, 1);
         
@@ -62,11 +62,27 @@ Memory Usage: 37.4 MB, less than 39.89% of Java online submissions for Binary Tr
 		if (height > res.size()) {
 			res.add(new ArrayList<Integer>());
 		}
-		res.get(height).add(node.val);
+		res.get(height - 1).add(node.val);
 		dfs(res, node.left, height + 1);
 		dfs(res, node.right, height + 1);
 	}
-
+	
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(0);
+		root.left = new TreeNode(1);
+		root.right = new TreeNode(2);
+		root.left.left = new TreeNode(3);
+		root.left.right = new TreeNode(4);
+		root.right.left = new TreeNode(5);
+		root.right.right = new TreeNode(6);
+		BinaryTreeLevelOrderTraversal solu = new BinaryTreeLevelOrderTraversal();
+		List<List<Integer>> res = solu.levelOrder2(root);
+		for (List<Integer> r: res) {
+			for (int n: r) {
+				System.out.println(n);
+			}
+		}
+	}
 	
 }
 
