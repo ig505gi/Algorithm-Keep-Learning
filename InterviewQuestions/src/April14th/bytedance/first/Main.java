@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 暴力求解。。只过了12.5%
  * 觉得应该用dfs来写，但是思路是每遇到一个2就dfs，这样效率感觉很低，就没有写
  * @author GaoYuan
- *
+ * 
  */
 public class Main {
 

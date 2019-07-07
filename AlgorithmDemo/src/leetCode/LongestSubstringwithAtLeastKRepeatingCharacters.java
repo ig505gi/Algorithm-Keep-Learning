@@ -98,7 +98,7 @@ Memory Usage: 37.3 MB, less than 52.41% of Java online submissions for Longest S
     }
 	public static void main(String[] args) {
 		LongestSubstringwithAtLeastKRepeatingCharacters solution = new LongestSubstringwithAtLeastKRepeatingCharacters();
-		System.out.println(solution.longestSubstring("aaabbb", 2));
+		System.out.println(solution.longestSubstring("adadadaqeqe", 2));
 	}
 
 }

@@ -19,7 +19,7 @@ public class SortColors {
 				nums[r--] = temp;
 			} else if (nums[i] == 0) {
 				int temp = nums[l];
-				nums[l] = nums[i];
+				nums[l++] = nums[i];
 				nums[i++] = temp;
 			} else {
 				i++;
