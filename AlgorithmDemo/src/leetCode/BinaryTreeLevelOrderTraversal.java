@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import leetCode.util.TreeNode;
 /**
  * Runtime: 1 ms, faster than 74.98% of Java online submissions for Binary Tree Level Order Traversal.
 Memory Usage: 37.5 MB, less than 9.54% of Java online submissions for Binary Tree Level Order Traversal.
@@ -84,11 +85,4 @@ Memory Usage: 37.4 MB, less than 39.89% of Java online submissions for Binary Tr
 		}
 	}
 	
-}
-
-class TreeNode {
-	 int val;
-	 TreeNode left;
-	 TreeNode right;
-	 TreeNode(int x) { val = x; }
 }

@@ -1,10 +1,7 @@
 package swordToOffer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class DeleteNodeO1Test {
 	DeleteNodeO1 solution = new DeleteNodeO1();

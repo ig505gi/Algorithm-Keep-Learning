@@ -3,6 +3,7 @@ package leetCode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import leetCode.util.TreeNode;
 
 /**
  * 之字型层序遍历
@@ -13,6 +14,7 @@ Memory Usage: 37.2 MB, less than 29.98% of Java online submissions for Binary Tr
  *
  */
 public class BinaryTreeZigzagLevelOrderTraversal {
+
 	public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         Stack<TreeNode> stack = new Stack<TreeNode>();
         List<List<Integer>> res = new ArrayList<List<Integer>>(); 
@@ -38,13 +40,6 @@ public class BinaryTreeZigzagLevelOrderTraversal {
         }
         return res;
     }
-	
-	class TreeNode {
-		 int val;
-		 TreeNode left;
-		 TreeNode right;
-		 TreeNode(int x) { val = x; }
-	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

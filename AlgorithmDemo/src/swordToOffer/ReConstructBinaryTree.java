@@ -1,4 +1,6 @@
 package swordToOffer;
+import leetCode.util.TreeNode;
+
 import java.util.*;
 
 public class ReConstructBinaryTree {
@@ -27,15 +29,6 @@ public class ReConstructBinaryTree {
 		return root;
 	}
 
-	private class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		public TreeNode(int val) {
-			this.val = val;
-		}
-	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

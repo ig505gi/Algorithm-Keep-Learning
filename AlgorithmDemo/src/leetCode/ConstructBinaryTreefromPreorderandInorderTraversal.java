@@ -1,6 +1,7 @@
 package leetCode;
 
 import java.util.Arrays;
+import leetCode.util.TreeNode;
 
 /**
  * For example, given
@@ -78,16 +79,6 @@ Memory Usage: 77.1 MB, less than 5.06% of Java online submissions for Construct 
 			newNode.right = construct(rightpre, rightin);
 		}	
 		return newNode;
-	}
-	
-	class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
 	}
 
 	public static void main(String[] args) {
