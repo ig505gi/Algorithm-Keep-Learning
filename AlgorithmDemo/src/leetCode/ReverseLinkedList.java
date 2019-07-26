@@ -1,5 +1,7 @@
 package leetCode;
 
+import leetCode.util.ListNode;
+
 public class ReverseLinkedList {
 	/**
 	 * Definition for singly-linked list. public class ListNode { int val; ListNode
@@ -39,15 +41,6 @@ public class ReverseLinkedList {
 		}
 	}
 
-
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -1,4 +1,7 @@
 package leetCode;
+
+import leetCode.util.ListNode;
+
 /**
  * You are given two non-empty linked lists representing two non-negative integers. 
  * The digits are stored in reverse order and each of their nodes contain a single digit. 
@@ -50,12 +53,4 @@ public class AddTwoNumbers {
             add(l1.next, l2.next);
         }
     }
-    
-    
-     // Definition for singly-linked list.
-     public class ListNode {
-         int val;
-         ListNode next;
-         ListNode(int x) { val = x; }
-     }
 }

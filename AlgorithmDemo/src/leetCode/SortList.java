@@ -1,4 +1,7 @@
 package leetCode;
+
+import leetCode.util.ListNode;
+
 /**
  * Sort a linked list in O(n log n) time using constant space complexity.
 
@@ -21,13 +24,6 @@ Output: -1->0->3->4->5
  */
 public class SortList {
 
-	public class ListNode {
-		int val;
-		ListNode next;
-		ListNode(int x) {
-			val = x;
-		}
-	}
 	/*
 	 * Runtime: 3 ms, faster than 97.37% of Java online submissions for Sort List.
 Memory Usage: 40 MB, less than 97.56% of Java online submissions for Sort List.

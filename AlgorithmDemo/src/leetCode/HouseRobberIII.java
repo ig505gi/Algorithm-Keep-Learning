@@ -2,9 +2,6 @@ package leetCode;
 
 import leetCode.util.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 
 /**
  * @author Gao Yuan
