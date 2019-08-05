@@ -1,5 +1,6 @@
 package test;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
@@ -22,7 +23,17 @@ public class Test {
 		arr[2] = 1;
 	}
 	public static void main(String[] args) {
-		System.out.println();
+
+		// 测试 Calendar
+		Calendar now = Calendar.getInstance();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		now.set(Calendar.HOUR_OF_DAY, 0);
+		now.set(Calendar.MINUTE, 0);
+		now.set(Calendar.SECOND, 0);
+		System.out.println(format.format(now.getTime()));
+		int year = now.get(Calendar.YEAR);
+		System.out.println(year);
+		System.out.println("-----------------");
 		// StringBuffer
 		StringBuffer sb = new StringBuffer("adad adad");
 		sb.substring(0, sb.length());
