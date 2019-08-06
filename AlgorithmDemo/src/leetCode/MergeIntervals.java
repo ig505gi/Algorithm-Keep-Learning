@@ -34,9 +34,9 @@ Memory Usage: 41.1 MB, less than 74.98% of Java online submissions for Merge Int
 	 */
 	public int[][] merge(int[][] intervals) {
         if (intervals.length < 2) return intervals;
-		Arrays.sort(intervals, (p, q)->{
-        	return p[0] != q[0]?p[0] - q[0]:p[1] - q[1];});
-        List<int[]> resList = new ArrayList<int[]>();
+		// 按照start排序
+        Arrays.sort(intervals, (p, q)-> p[0] != q[0]?p[0] - q[0]:p[1] - q[1]);
+        List<int[]> resList = new ArrayList<>();
 		for (int i = 1; i < intervals.length; i++) {
         	if (intervals[i][0] <= intervals[i-1][1]) {
         		intervals[i][0] = intervals[i-1][0];
@@ -53,6 +53,35 @@ Memory Usage: 41.1 MB, less than 74.98% of Java online submissions for Merge Int
 		}
 		return res;
     }
+	/*
+	注意到这个 1,4和 2，5  对 1，5和2，4是一样的结果，因此两个可以分开
+	对array排序比对int排序 的速度要慢很多，
+	Runtime: 2 ms, faster than 99.49% of Java online submissions for Merge Intervals.
+Memory Usage: 43.2 MB, less than 46.80% of Java online submissions for Merge Intervals.
+	 */
+	public int[][] merge2(int[][] intervals) {
+		if (intervals.length < 2) return intervals;
+		int[] start = new int[intervals.length];
+		int[] end = new int[intervals.length];
+		for (int i = 0; i < intervals.length; i++) {
+			start[i] = intervals[i][0];
+			end[i] = intervals[i][1];
+		}
+		Arrays.sort(start);
+		Arrays.sort(end);
+		List<int[]> res = new ArrayList<>();
+		for (int i = 0, j = 0; i < intervals.length; i++) {
+			if (i == intervals.length - 1 || end[i] < start[i + 1]) {
+				res.add(new int[]{start[j], end[i]});
+				j = i + 1;
+			}
+		}
+		int[][] re = new int[res.size()][2];
+		for (int i = 0; i < re.length; i++) {
+			re[i] = res.get(i);
+		}
+		return re;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

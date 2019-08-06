@@ -23,7 +23,14 @@ public class Test {
 		arr[2] = 1;
 	}
 	public static void main(String[] args) {
-
+		// 测试最大最小值
+		int min = Integer.MIN_VALUE;
+		int count = 32;
+		System.out.println(0 - min);
+		while (count-- > 0) {
+			min /= 2;
+			System.out.println(min);
+		}
 		// 测试 Calendar
 		Calendar now = Calendar.getInstance();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
