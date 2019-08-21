@@ -8,6 +8,18 @@ import java.io.*;
 
 public class Test {
 
+	public Exception te() {
+		Throwable aa = new Exception();
+		try {
+			int a = 1;
+		} catch (IllegalArgumentException e2) {
+
+		}
+		return (Exception) aa;
+
+	}
+
+
 	public Test() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,6 +35,17 @@ public class Test {
 		arr[2] = 1;
 	}
 	public static void main(String[] args) {
+		Integer staticInt = 127;
+		Integer staticInt2 = 127;
+		Integer dynamicInt = 128;
+		Integer dynamicInt2 = 128;
+		System.out.println(staticInt == staticInt2);
+		System.out.println(dynamicInt == dynamicInt2);
+		// 演示array转list
+		Integer[] aaa = new Integer[3];
+		List<Integer> list1 = new ArrayList<>();
+		Collections.addAll(list1, aaa);
+
 		// 测试最大最小值
 		int min = Integer.MIN_VALUE;
 		int count = 32;

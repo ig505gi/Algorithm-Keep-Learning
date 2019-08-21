@@ -38,7 +38,7 @@ public class QuickSort {
 				if (j == lo) break;
 			}
 			// 假如 [2,3], lo=0,hi=1,此时i=hi=1,j=lo=0,出现了i>=j的情况
-			// 假如[3,2] ,lo=0,hi=1,此时 i=hi=1,j=hi=0 i=j,在下面第二个exch交换
+			// 假如[3,2] ,lo=0,hi=1,此时 i=hi=1,j=hi=1 i=j,在下面第二个exch交换
 			if (i >= j) break;
 			exch(a, i, j);
 		}
