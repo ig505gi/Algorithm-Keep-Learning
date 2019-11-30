@@ -11,21 +11,35 @@ public class KMP {
         if (patten == null || patten.length() == 0) throw new IllegalArgumentException();
         int[] next = new int[patten.length()];
         next[0] = -1;
-        if (next.length > 1) next[1] = 0;
-        for (int i = 2; i < next.length; i++) {
-            int idx = i - 1;
-            int preIdx = next[i - 1];
-            while (preIdx >= 0) {
-                if (str.charAt(preIdx) == str.charAt(idx)) {
-                    next[i] = next[idx] + 1;
-                    break;
+        int j = 0, k = -1;
+        while (j < next.length - 1) {
+            if (k == -1 || patten.charAt(j) == patten.charAt(k)) {
+                j++;
+                k++;
+                if (patten.charAt(j) != patten.charAt(k)) {
+                    next[j] = k;
                 } else {
-                    idx = preIdx;
-                    preIdx = next[preIdx];
+                    next[j] = next[k];
                 }
+            } else {
+                k = next[k];
             }
-            if (preIdx < 0) next[i] = 0;
         }
+//        if (next.length > 1) next[1] = 0;
+//        for (int i = 2; i < next.length; i++) {
+//            int idx = i - 1;
+//            int preIdx = next[i - 1];
+//            while (preIdx >= 0) {
+//                if (str.charAt(preIdx) == str.charAt(idx)) {
+//                    next[i] = next[idx] + 1;
+//                    break;
+//                } else {
+//                    idx = preIdx;
+//                    preIdx = next[preIdx];
+//                }
+//            }
+//            if (preIdx < 0) next[i] = 0;
+//        }
 
         int strIdx = 0, patIdx = 0;
         while (strIdx < str.length()) {
