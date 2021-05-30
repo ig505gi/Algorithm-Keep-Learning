@@ -17,15 +17,15 @@ Quick Union改进了 Quick Find，平均时间复杂度变成了lgN，但是特�
 改进2：  Path Compression： `id[i] = id[id[i]];` 因为我们只是找相同的root，不在意过程，可以直接寻找parent的parent来压缩路径；  
 
 #### Union-Find Summary
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/unionFind.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/unionFind.png)
 图为Union-Find的各种实现算法的时间复杂度
 
 #### 算法分析
 Typical orders of growth  
 
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/typicalOrdersOfGrowth.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/typicalOrdersOfGrowth.png)
 
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/typicalOrdersOfGrowth2.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/typicalOrdersOfGrowth2.png)
 
 时间复杂度表示方法：
 > Big Theta: Θ(N2)是指复杂度等于N2  
@@ -38,7 +38,7 @@ Big Omega: Ω(N2)是指复杂度等于N2或者大于N2
 Reference. 8 bytes.  
 Padding. Each object uses a multiple of 8 bytes.  
 
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaMemory.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaMemory.png)
 
 #### 作业 Percolation
 
@@ -53,7 +53,7 @@ Padding. Each object uses a multiple of 8 bytes.
 应该这样： `s = (Item[]) new Object[capacity];`
 
 #### Iterator
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Iterator.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Iterator.png)
 
 #### Shell Sort
 >Idea. Move entries more than one position at a time by h-sorting the array.  
@@ -63,8 +63,8 @@ Powers of two minus one. 1, 3, 7, 15, 31, 63, ... Maybe.
 Sedgewick. 1, 5, 19, 41, 109, 209, 505, 929, 2161,... Good. Tough to beat in empirical studies.  
 （merging of (9 ⨉ 4i) – (9 ⨉ 2i) + 1 and 4i – (3 ⨉ 2i) + 1）(i为指数)
 
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Shellsort1.png)
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Shellsort2.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Shellsort1.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Shellsort2.png)
 
 #### Shuffling
 策略：  
@@ -109,7 +109,7 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 
 #### 3-way QuickSort
 当序列中有很多重复的值时，才会这种方法效率很高
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/threeWayQuickSort.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/threeWayQuickSort.png)
 
 #### Java System Sorts
 >Arrays.sort().  
@@ -119,24 +119,24 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 ・Uses tuned quicksort for primitive types; tuned mergesort for objects.  
 
 #### Sorting Summary
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SortingSummary.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SortingSummary.png)
 
 加上Heapsort后的表：  
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SortingSummary2.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SortingSummary2.png)
 
 #### 作业 Collinear
 
 ### 1.4 Week4 Priority Queue & Elementary Symbol Tables
 
 #### Binary Heap
-数组实现如图：![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Heap.png)
+数组实现如图：![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Heap.png)
 
 主要操作依靠swim和sink来完成
 
 #### Immutability: implementing in Java
 >Immutable data type. Can't change the data type value once created.  
 
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Immutability.png)
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/Immutability.png)
 
 #### HeapSort
 >First pass.  
@@ -177,7 +177,7 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 #### Left-leaning red-black BSTs 
 
 (Guibas-Sedgewick 1979 and Sedgewick 2007)  
-用两个2-node来取代2-3树中的 3-node：![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/RedBlackTree.png)  
+用两个2-node来取代2-3树中的 3-node：![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/RedBlackTree.png)  
 性质：
 >A BST such that:  
 ・No node has two red links connected to it.  
@@ -190,15 +190,15 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 3. Color flip： 将有两条红线节点的父亲节点变为红线
 
 情况很多，但是最后的代码很简单，因为很多情况可以相互转化！如图：  
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/RedBlackTree2.png)  
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/RedBlackTree2.png)  
 
 根据情况图可以判断，先进行坐旋转，再右旋转，再改变颜色。
 
 #### SearchTree Summary
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SearchTree.png)  
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/SearchTree.png)  
 
 #### B-tree
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/B-Tree.png)  
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/B-Tree.png)  
 有着很广泛的应用：
 >Red-black trees are widely used as system symbol tables.  
 ・Java: java.util.TreeMap, java.util.TreeSet.  
@@ -220,7 +220,7 @@ in-place: A sorting algorithm is in-place if it uses ≤ clogN extra memory.
 ### 1.6 Week6 Hash Table
 
 #### Java’s hash code conventions
-![image](https://github.com/CoderOrigin/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaHash.png)  
+![image](https://github.com/ig505gi/Algorithm-Keep-Learning/blob/master/CourseraPricetonAlgorithm/Images/JavaHash.png)  
 
 用户自定义hash code  
 可以采用 31x + y rule
